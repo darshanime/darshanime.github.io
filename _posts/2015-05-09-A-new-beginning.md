@@ -26,7 +26,7 @@ I plan to do this :
   * Talk about my contributions to the projects.<br>
   * Talk about the amazing people I met. <br>
 
-Next, I plan to write about my experiences with the next project I would work with. Which ? I don't know either<br> But I wish to make it will read like a diary.
+Next, I plan to write about my experiences with the next project I would work with. Which ? I don't know either<br> But I wish to make it read like a diary.
 
 <br>
 **Why are you doing this ?**
