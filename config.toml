@@ -1,0 +1,43 @@
+baseurl = "http://darshanime.github.io"
+title = "ThinkSpace"
+theme ="hugo-theme-basic"
+languageCode = "en-us"
+googleAnalytics = "UA-XXXXXXXXX-X"
+enableEmoji = true
+copyright = ""
+description = "Blog by Darshan Chaudhary"
+
+[taxonomies]
+  category = "categories"
+  series = "series"
+  tag = "tags"
+
+[params]
+  titleEmoji = ":tada:"
+  twitter = "deathbullet"
+
+[Permalinks]
+  post = "post/:slug"
+
+[[params.menu]]
+  name = "blog"
+  url = "post/"
+
+# [[params.menu]]
+#   name = "post series"
+#   url = "series/"
+  
+
+[[params.menu]]
+  name = "about"
+  url = "about/"
+  
+[privacy]
+  [privacy.googleAnalytics]
+    anonymizeIP = true
+    respectDoNotTrack = true
+    useSessionStorage = true
+  [privacy.twitter]
+    enableDNT = true
+  [privacy.youtube]
+    privacyEnhanced = true
