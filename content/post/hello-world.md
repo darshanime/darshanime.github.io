@@ -2,7 +2,6 @@
 author = "Darshan Chaudhary"
 date = 2019-03-05
 title = "Migrating to hugo"
-series = "go"
 +++
 
 
@@ -20,4 +19,4 @@ func main() {
 }
 ```
 
-Expect a lot more here now onwards.
+Expect a lot more here now onwards

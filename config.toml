@@ -1,4 +1,4 @@
-baseurl = "http://darshanime.github.io"
+baseurl = "https://darshanime.github.io"
 title = "ThinkSpace"
 theme ="hugo-theme-basic"
 languageCode = "en-us"
