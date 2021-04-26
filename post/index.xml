@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on ThinkSpace</title>
+    <link>https://darshanime.github.io/post/</link>
+    <description>Recent content in Posts on ThinkSpace</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 21 Mar 2019 00:00:00 +0530</lastBuildDate>
+    
+	<atom:link href="https://darshanime.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Why morality is objective</title>
+      <link>https://darshanime.github.io/post/why-morality-is-objective/</link>
+      <pubDate>Thu, 21 Mar 2019 00:00:00 +0530</pubDate>
+      
+      <guid>https://darshanime.github.io/post/why-morality-is-objective/</guid>
+      <description>In this age of diverse cultures and traditions, morality is commonly defined differently by each segment of the human race. I use segment here as a general abstraction of any groping of humans, could be on religious, ethnic, demographic, social class lines etc. Historically, there have been different cultures, traditions and what may be the norm in a culture might be immoral in the other. Bull fights are common place in Spain, but constitute animal abuse in India.</description>
+    </item>
+    
+  </channel>
+</rss>
