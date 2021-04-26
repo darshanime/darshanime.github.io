@@ -2,7 +2,7 @@ baseurl = "https://darshanime.github.io"
 title = "ThinkSpace"
 theme ="hugo-theme-basic"
 languageCode = "en-us"
-googleAnalytics = "UA-XXXXXXXXX-X"
+googleAnalytics = "UA-58520192-1"
 enableEmoji = true
 copyright = ""
 description = "Blog by Darshan Chaudhary"
@@ -34,10 +34,10 @@ description = "Blog by Darshan Chaudhary"
   
 [privacy]
   [privacy.googleAnalytics]
-    anonymizeIP = true
-    respectDoNotTrack = true
+    anonymizeIP = false
+    respectDoNotTrack = false
     useSessionStorage = true
   [privacy.twitter]
-    enableDNT = true
+    enableDNT = false
   [privacy.youtube]
-    privacyEnhanced = true
+    privacyEnhanced = false
