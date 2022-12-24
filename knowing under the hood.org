@@ -1,0 +1,16 @@
+#+OPTIONS: num:nil toc:nil author:nil creator:nil html-postamble:nil
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./style.css">
+#+HTML_HEAD: <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu">
+#+TITLE: knowing under the hood
+
+There is a certain charm in trying to learn how things work under the hood. 
+
+Let's say, you see read that dictionaries allow constant time lookup on the elements, regardless of how many elements there are. One could take that fact on face value, or actually see how the data is laid out that supports this data access behavior. 
+
+It is rewarding to have learned how it works, and there is a certain sense of pride in having taken that effort. I tried to make it a habit of checking if I could peel one layer off the world's abstraction and learn the internals. So sold was I on this idea that I would be mildly shocked that some people don't make any effort to do this. 
+
+How lacking in curiosity are these people, I thought. They go on living their lives, using the dictionary without knowing why or how it is giving them instant lookups. How blind to the charms of this world. Surely, they must have no self respect. 
+
+Of late, I have realized that I am the same, and /everyone else/ is the same. I might have read up on how dictionaries give fast lookups, checked a few hashing algorithms, studied their collisions properties. However, I still do not know about a thousand layers below that abstraction. What does it mean to store the dictionary bits in memory, how does DRAM work, how does the circuitry in the microprocessor on my computer work, how do the electrons flow in it, what are electrons made up of. 
+
+There is a bottomless stack of layers of abstractions that make up the world as we see it. Trying to learn one tiny layer does not mean anything, it's just a drop in the ocean. Humans collectively aren't close to understand it all either. 
