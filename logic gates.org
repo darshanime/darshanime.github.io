@@ -1,0 +1,204 @@
+#+OPTIONS: num:nil toc:nil author:nil creator:nil html-postamble:nil
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./style.css">
+#+HTML_HEAD: <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu">
+#+TITLE: composing logic gates
+
+
+For any gate with 1 input, we have the following skeleton of the truth table:
+
+#+begin_src
+| 0 | a |
+| 1 | b |
+#+end_src
+
+The input is on the ~y~ axis. For each of the 0/1 input, there are multiple possibilities:
+
+- a -> can be 0/1
+- b -> can be 0/1  
+
+Hence, total: 4 possibilities.
+
+
+Let's enumerate all the possible 1 input gates. Fixing the order of the inputs, we can encode the gate as: ~ab~.  
+Hence, ~01~ gate, fully expanded is:
+
+
+#+begin_src
+| 0 | 0 |
+| 1 | 1 |
+#+end_src
+
+This is the no-op gate.  
+
+All possible gates:
+
+#+begin_src
+00 -> always off gate
+01 -> no-op gate
+10 -> not gate
+11 -> always on gate
+#+end_src
+
+** 2 input gates
+
+On the similar logic, we have the following truth table:
+
+#+begin_src
+|   | 0 | 1 |
+| 0 | a | b |
+| 1 | c | d |
+#+end_src
+
+We have input 0 on ~y~ axis, input 1 on ~x~ axis. Total possible gates: 2^4 = 16. Fixing the order of the input values, we can encode the gates like: ~abcd~  
+
+
+Enumerating all possible gates:
+
+#+begin_src
+0001 -> AND gate
+0111 -> OR gate
+1000 -> NOR gate
+1001 -> XNOR gate (exclusive not OR)
+1110 -> NAND gate
+0110 -> XOR gate
+0010 -> ?
+0011 -> ? input 0 output
+0100 -> ?
+0101 -> ? input 1 output
+1010 -> ? not input 1 gate
+1011 -> ?
+1100 -> ? not input 0 gate
+1101 -> ?
+0000 -> ? always off gate
+1111 -> ? always on gate
+#+end_src
+
+Note, there are only a few gates that are useful. Overall, all gates can be constructed from the ~NAND~ gate.
+
+** Combining gates
+
+Consider the NAND gate (1110) which can be thought of as a function ~NAND(inp1, inp2) -> output~:
+
+#+begin_src
+|   | 0 | 1 |
+| 0 | 1 | 1 | NAND gate
+| 1 | 1 | 0 |
+#+end_src
+
+And the NOT gate (10), which is ~NOT(inp) -> output~:
+
+#+begin_src
+| 0 | 1 |
+| 1 | 0 | NOT gate
+#+end_src
+
+Note how the ~NOT(output)~ function just flips each value in the truth table. We can use this to get the AND gate by composition:
+~AND(inp1, inp2) = NOT(NAND(inp1, inp2))~
+
+#+begin_src
+|   | 0 | 1 |
+| 0 | 0 | 0 | AND gate
+| 1 | 0 | 1 |
+#+end_src
+
+Applying ~NOT~ to one of the inputs, say input 0 on the y axis, the result is shuffling of the 2 rows:
+
+#+begin_src
+|   | 0 | 1 |
+| 0 | a | b |
+| 1 | c | d |
+
+      ||
+      
+|   | 0 | 1 |
+| 0 | c | d |
+| 1 | a | b |
+#+end_src
+
+Similarly, applying to input 1 on the x axis, results in shuffling of the 2 columns:
+
+#+begin_src
+|   | 0 | 1 |
+| 0 | a | b |
+| 1 | c | d |
+
+      ||
+      
+|   | 0 | 1 |
+| 0 | b | a |
+| 1 | d | c |
+#+end_src
+
+Thus, we can get the OR gate by flipping both rows and columns: ~OR(inp1, inp2) = NAND(NOT(inp1), NOT(inp2))~:
+
+#+begin_src
+|   | 0 | 1 |
+| 0 | 1 | 1 | NAND gate
+| 1 | 1 | 0 |
+
+      
+|   | 0 | 1 |
+| 0 | 0 | 1 | OR gate
+| 1 | 1 | 1 |
+      
+#+end_src
+
+*** Applying 2 input functions
+
+How do we get ~XOR~ gate by applying ~NOT~? It's not possible since any amount of switching rows/columns or flipping each value in the truth table won't give us:
+
+#+begin_src
+|   | 0 | 1 |
+| 0 | 0 | 1 | XOR gate
+| 1 | 1 | 0 |
+#+end_src
+
+We spoke till now only of applying the ~NOT~ function to the input/output. What does it mean to apply the ~AND~ function?
+
+It can be thought to apply pointwise on truth tables:
+
+
+#+begin_src
+|   | 0 | 1 |
+| 0 | a | b | 
+| 1 | c | d |
+
+      AND
+      
+|   | 0  | 1  |
+| 0 | a' | b' |
+| 1 | c' | d' |
+
+       ||
+      
+|   | 0       | 1       |
+| 0 | X(a+a') | X(b+b') |
+| 1 | X(c+c') | X(d+d') |
+#+end_src
+where ~X~ is ~carry-bit(inp1, inp2)~
+
+So, ADDing the NAND output and OR output gives us XOR:
+
+#+begin_src
+|   | 0 | 1 |
+| 0 | 1 | 1 | 
+| 1 | 1 | 0 |
+
+      AND
+      
+|   | 0 | 1 |
+| 0 | 0 | 1 |
+| 1 | 1 | 1 |
+
+       ||
+       
+|   | 0 | 1 |
+| 0 | 0 | 1 | XOR gate
+| 1 | 1 | 0 |
+#+end_src
+
+Similarly, other 2 input fucntions:
+
+- AND: carry-bit(inp1, inp2)
+- OR: base-bit(inp1+inp2, carry-bit(inp1, inp2))
+- NAND: not(carry-bit(inp1, inp2))

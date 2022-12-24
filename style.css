@@ -4,6 +4,10 @@
     font-size: 100%;
     font-family: Ubuntu;
   }
+  .center {
+      margin-left: auto;
+      margin-right: auto;
+  }
   @media print {
     img {page-break-inside: avoid;}
     div.nosplit {page-break-inside: avoid;}
